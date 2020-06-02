@@ -26,7 +26,15 @@ def spectra_fowarding_loop(xffts):
             pub_dict[bnum].publish(spec)
             #print(bnum)
             continue
+                    def sum(self, q, arg):
+                        _tp = sum(q.data[:-1])
+                        t = q.data[-1]
+                        tp = Float64MultiArray()
+                        tp.data = [_tp,t]
+                        self.pub[arg].publish(tp)
+                        return
         continue
+   
     return
 
 def sum(self, q, arg):
