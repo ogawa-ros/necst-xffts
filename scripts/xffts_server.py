@@ -37,14 +37,6 @@ def spectra_fowarding_loop(xffts):
    
     return
 
-def sum(self, q, arg):
-    _tp = sum(q.data[:-1])
-    t = q.data[-1]
-    tp = Float64MultiArray()
-    tp.data = [_tp,t]
-    self.pub[arg].publish(tp)
-    return
-
 if __name__ == '__main__':
     rospy.init_node('xffts')
     host = 'localhost'
