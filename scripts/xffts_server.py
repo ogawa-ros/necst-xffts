@@ -33,11 +33,11 @@ def spectra_fowarding_loop(xffts):
                                         std_msgs.msg.Float64MultiArray,
                                         queue_size = 1)
                 pass
-            _tp = sum(q.data[:-1])
-            t = q.data[-1]
-            tp = Float64MultiArray()
+            _tp = sum(spec.data[:-1])
+            t = spec.data[-1]
+            tp = std_msg.msg.Float64MultiArray()
             tp.data = [_tp,t]
-            self.pub[arg].publish(tp)
+            pub_dict_tp[bnum].publish(tp)
                         
             continue
                     
