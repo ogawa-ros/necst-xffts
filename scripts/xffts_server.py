@@ -35,7 +35,7 @@ def spectra_fowarding_loop(xffts):
                 pass
             _tp = sum(spec.data[:-1])
             t = spec.data[-1]
-            tp = std_msg.msg.Float64MultiArray()
+            tp = std_msgs.msg.Float64MultiArray()
             tp.data = [_tp,t]
             pub_dict_tp[bnum].publish(tp)
                         
