@@ -10,6 +10,7 @@ import std_msgs.msg
 
 def spectra_fowarding_loop(xffts):
     pub_dict = {}
+    pub_dict_tp = {}
     xffts.clear_buffer()
     while not rospy.is_shutdown():
         d = xffts.receive_once()
@@ -26,6 +27,12 @@ def spectra_fowarding_loop(xffts):
             pub_dict[bnum].publish(spec)
             #print(bnum)
            
+            if bnum not in pub_dict_tp:
+                pub_dict_tp[bnum] = rospy.Publisher(
+                                        '/xffts_board{0:02d}_tp'.format(bnum),
+                                        std_msgs.msg.Float64MultiArray,
+                                        queue_size = 1)
+                pass
             _tp = sum(q.data[:-1])
             t = q.data[-1]
             tp = Float64MultiArray()
